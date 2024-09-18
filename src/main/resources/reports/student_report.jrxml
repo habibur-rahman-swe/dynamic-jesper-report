@@ -1,0 +1,87 @@
+<jasperReport name="Test" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7eb827ab-0d94-458f-9f78-b4eb3e5aaf30">
+    <!-- Add report configuration -->
+    <parameter name="Title" class="java.lang.String"/>
+    
+    <field name="id" class="java.lang.Integer"/>
+    <field name="name" class="java.lang.String"/>
+    <field name="subject" class="java.lang.String"/>
+
+    <background splitType="Stretch"/>
+
+    <title height="29" splitType="Stretch">
+        <element kind="staticText" uuid="b84d0752-394d-48cf-b258-e67ff5d83eea" x="44" y="5" width="446" height="20" fontSize="13.0" bold="true" underline="true" hTextAlign="Center">
+            <text><![CDATA[Audit Report]]></text>
+        </element>
+    </title>
+    <pageHeader height="4" splitType="Stretch"/>
+    
+    <columnHeader height="47">
+	    <element kind="staticText" uuid="2b0e7d5f-9d02-495f-8d9c-53922a227f35" mode="Opaque" x="0" y="0" width="138" height="47" backcolor="#CCCCCC" fontSize="10.0" bold="true" underline="false" hTextAlign="Center" vTextAlign="Middle">
+	        <text><![CDATA[ID]]></text>
+	        <box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+	            <pen lineWidth="0.25"/>
+	            <topPen lineWidth="0.25"/>
+	            <leftPen lineWidth="0.25"/>
+	            <bottomPen lineWidth="0.25"/>
+	            <rightPen lineWidth="0.25"/>
+	        </box>
+	    </element>
+	    <element kind="staticText" uuid="b7d2a730-f56b-4a8e-9b24-5b90f6606cc1" mode="Opaque" x="138" y="0" width="138" height="47" backcolor="#CCCCCC" fontSize="10.0" bold="true" underline="false" hTextAlign="Center" vTextAlign="Middle">
+	        <text><![CDATA[NAME]]></text>
+	        <box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+	            <pen lineWidth="0.25"/>
+	            <topPen lineWidth="0.25"/>
+	            <leftPen lineWidth="0.25"/>
+	            <bottomPen lineWidth="0.25"/>
+	            <rightPen lineWidth="0.25"/>
+	        </box>
+	    </element>
+	    <element kind="staticText" uuid="c9f8f8f5-f3f8-455a-808f-9096ae4f2b18" mode="Opaque" x="276" y="0" width="138" height="47" backcolor="#CCCCCC" fontSize="10.0" bold="true" underline="false" hTextAlign="Center" vTextAlign="Middle">
+	        <text><![CDATA[SUBJECT]]></text>
+	        <box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+	            <pen lineWidth="0.25"/>
+	            <topPen lineWidth="0.25"/>
+	            <leftPen lineWidth="0.25"/>
+	            <bottomPen lineWidth="0.25"/>
+	            <rightPen lineWidth="0.25"/>
+	        </box>
+	    </element>
+	</columnHeader>
+
+
+    <detail>
+        <band height="20" splitType="Stretch">
+            <element kind="textField" uuid="62d655e9-0f0a-4d9f-b7ec-8bbaaedf89ff" x="1" y="0" width="138" height="20" blankWhenNull="true" hTextAlign="Center" vTextAlign="Middle">
+                <expression><![CDATA[$F{id}]]></expression>
+                <box>
+                    <pen lineWidth="0.25"/>
+                    <topPen lineWidth="0.25"/>
+                    <leftPen lineWidth="0.25"/>
+                    <bottomPen lineWidth="0.25"/>
+                    <rightPen lineWidth="0.25"/>
+                </box>
+            </element>
+            <element kind="textField" uuid="a8c4cbad-8bcf-425e-9f1a-af7cca798111" x="139" y="0" width="138" height="20" blankWhenNull="true" hTextAlign="Center" vTextAlign="Middle">
+                <expression><![CDATA[$F{name}]]></expression>
+                <box>
+                    <pen lineWidth="0.25"/>
+                    <topPen lineWidth="0.25"/>
+                    <leftPen lineWidth="0.25"/>
+                    <bottomPen lineWidth="0.25"/>
+                    <rightPen lineWidth="0.25"/>
+                </box>
+            </element>
+            <element kind="textField" uuid="ddd6c91b-cb36-428d-9bdd-18c788d51638" x="277" y="0" width="138" height="20" blankWhenNull="true" hTextAlign="Center" vTextAlign="Middle">
+                <expression><![CDATA[$F{subject}]]></expression>
+                <box>
+                    <pen lineWidth="0.25"/>
+                    <topPen lineWidth="0.25"/>
+                    <leftPen lineWidth="0.25"/>
+                    <bottomPen lineWidth="0.25"/>
+                    <rightPen lineWidth="0.25"/>
+                </box>
+            </element>
+        </band>
+    </detail>
+
+</jasperReport>

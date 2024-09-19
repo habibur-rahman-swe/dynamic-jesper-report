@@ -1,23 +1,48 @@
 <jasperReport name="Test" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7eb827ab-0d94-458f-9f78-b4eb3e5aaf30">
     <!-- Add report configuration -->
     <parameter name="Title" class="java.lang.String"/>
+    <parameter name="REPORT_FORMAT" class="java.lang.String"/>
     
-    <field name="id" class="java.lang.Integer"/>
-    <field name="name" class="java.lang.String"/>
-    <field name="subject" class="java.lang.String"/>
+    <field name="msisdn" class="java.lang.String"/>
+    <field name="fnfNumber" class="java.lang.String"/>
+    <field name="isPartner" class="java.lang.Boolean"/>
 
     <background splitType="Stretch"/>
 
-    <title height="29" splitType="Stretch">
-        <element kind="staticText" uuid="b84d0752-394d-48cf-b258-e67ff5d83eea" x="44" y="5" width="446" height="20" fontSize="13.0" bold="true" underline="true" hTextAlign="Center">
-            <text><![CDATA[Audit Report]]></text>
-        </element>
-    </title>
-    <pageHeader height="4" splitType="Stretch"/>
+    <title height="50" splitType="Stretch">
+	    <!-- Dynamic Title Text -->
+	    <element kind="textField" uuid="b84d0752-394d-48cf-b258-e67ff5d83eea" x="50" y="5" width="420" height="20" fontSize="13.0" bold="true" underline="true" hTextAlign="Center">
+	        <expression><![CDATA[$P{Title}]]></expression>
+	        <box>
+	            <!--<pen lineWidth="0.25"/>
+	            <topPen lineWidth="0.25"/>
+	            <leftPen lineWidth="0.25"/>
+	            <bottomPen lineWidth="0.25"/>
+	            <rightPen lineWidth="0.25"/>-->
+	        </box>
+	    </element>
+	
+	    <!-- Current Date Element Below the Title -->
+	    <element kind="textField" uuid="d2d2d2d2-d2d2-4d2d-d2d2-d2d2d2d2d2d2" x="330" width="140" y="25" height="15" fontSize="10.0" hTextAlign="Right" vTextAlign="Bottom">
+	        <expression><![CDATA["Date: " + new java.text.SimpleDateFormat("dd/MM/yyyy").format(new java.util.Date())]]></expression>
+	        <box>
+	            <!--<pen lineWidth="0.25"/>
+	            <topPen lineWidth="0.25"/>
+	            <leftPen lineWidth="0.25"/>
+	            <bottomPen lineWidth="0.25"/>
+	            <rightPen lineWidth="0.25"/>-->
+	        </box>
+	    </element>
+	</title>
     
+   	<pageHeader height="4" splitType="Stretch">
+   		<printWhenExpression><![CDATA[$P{REPORT_FORMAT} != "XLSX"]]></printWhenExpression>
+	</pageHeader>
+
     <columnHeader height="47">
+    <printWhenExpression><![CDATA[$P{REPORT_FORMAT} != "XLSX"]]></printWhenExpression>
 	    <element kind="staticText" uuid="2b0e7d5f-9d02-495f-8d9c-53922a227f35" mode="Opaque" x="50" y="0" width="140" height="47" backcolor="#CCCCCC" fontSize="10.0" bold="true" underline="false" hTextAlign="Center" vTextAlign="Middle">
-	        <text><![CDATA[ID]]></text>
+	        <text><![CDATA[MSISDN]]></text>
 	        <box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
 	            <pen lineWidth="0.25"/>
 	            <topPen lineWidth="0.25"/>
@@ -27,7 +52,7 @@
 	        </box>
 	    </element>
 	    <element kind="staticText" uuid="b7d2a730-f56b-4a8e-9b24-5b90f6606cc1" mode="Opaque" x="190" y="0" width="140" height="47" backcolor="#CCCCCC" fontSize="10.0" bold="true" underline="false" hTextAlign="Center" vTextAlign="Middle">
-	        <text><![CDATA[NAME]]></text>
+	        <text><![CDATA[FNF_NUMBER]]></text>
 	        <box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
 	            <pen lineWidth="0.25"/>
 	            <topPen lineWidth="0.25"/>
@@ -37,7 +62,7 @@
 	        </box>
 	    </element>
 	    <element kind="staticText" uuid="c9f8f8f5-f3f8-455a-808f-9096ae4f2b18" mode="Opaque" x="330" y="0" width="140" height="47" backcolor="#CCCCCC" fontSize="10.0" bold="true" underline="false" hTextAlign="Center" vTextAlign="Middle">
-	        <text><![CDATA[SUBJECT]]></text>
+	        <text><![CDATA[IS_PARTNER]]></text>
 	        <box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
 	            <pen lineWidth="0.25"/>
 	            <topPen lineWidth="0.25"/>
@@ -52,7 +77,7 @@
     <detail>
         <band height="20" splitType="Stretch">
             <element kind="textField" uuid="62d655e9-0f0a-4d9f-b7ec-8bbaaedf89ff" x="50" y="0" width="140" height="20" blankWhenNull="true" hTextAlign="Center" vTextAlign="Middle">
-                <expression><![CDATA[$F{id}]]></expression>
+                <expression><![CDATA[$F{msisdn}]]></expression>
                 <box>
                     <pen lineWidth="0.25"/>
                     <topPen lineWidth="0.25"/>
@@ -62,7 +87,7 @@
                 </box>
             </element>
             <element kind="textField" uuid="a8c4cbad-8bcf-425e-9f1a-af7cca798111" x="190" y="0" width="140" height="20" blankWhenNull="true" hTextAlign="Center" vTextAlign="Middle">
-                <expression><![CDATA[$F{name}]]></expression>
+                <expression><![CDATA[$F{fnfNumber}]]></expression>
                 <box>
                     <pen lineWidth="0.25"/>
                     <topPen lineWidth="0.25"/>
@@ -72,7 +97,7 @@
                 </box>
             </element>
             <element kind="textField" uuid="ddd6c91b-cb36-428d-9bdd-18c788d51638" x="330" y="0" width="140" height="20" blankWhenNull="true" hTextAlign="Center" vTextAlign="Middle">
-                <expression><![CDATA[$F{subject}]]></expression>
+                <expression><![CDATA[$F{isPartner}]]></expression>
                 <box>
                     <pen lineWidth="0.25"/>
                     <topPen lineWidth="0.25"/>
